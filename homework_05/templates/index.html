@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Homepage
+{% endblock %}
+      <br>
+      <br>
+
+
+{% block main %}
+  <h1>Books</h1>
+
+  <ul>
+    {% for book in books %}
+      <li>{{ book }}</li>
+      {% endfor %}
+  </ul>
+<nav class="navbar navbar-light bg-light">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/">back to shop</a>
+  </li>
+</nav>
+
+{% endblock %}

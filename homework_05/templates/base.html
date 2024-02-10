@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}
+      Base Title
+    {% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    >
+  </head>
+  <body>
+    <main>
+      {% block main %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Black Books shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{url_for('books_app.list') }}">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('books_app.history') }}">History</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+      {% endblock %}
+    </main>
+  </body>
+<script
+        src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"
+>
+</script>
+</html>
