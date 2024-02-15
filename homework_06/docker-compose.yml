@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  app:
+    build:
+      dockerfile: ./docker-build/Dockerfile
+      context: ./
+
+    environment:
+      SQLALCHEMY_DATABASE_URI: postgresql+psycopg://user:qwerty@pg:5432/shop
+    ports:
+      - "5050:80"
+    volumes:
+      - ./shop/templates:/app/templates
+
+    depends_on:
+      pg:
+        condition: service_healthy
+
+  pg:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: shop
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: qwerty
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  db-data:
