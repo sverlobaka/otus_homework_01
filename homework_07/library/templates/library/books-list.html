@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Books
+{% endblock %}
+
+{% block body %}
+  <h1>Books:</h1>
+  {% if books %}
+    <ul>
+      {% for book in books %}
+        <li>
+          <strong>{{ book.name }}</strong> <em>({{ book.genre.name }})</em>.
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>No books yet!</h2>
+  {% endif %}
+
+  {% include 'common/footer-common.html' %}
+{% endblock %}
