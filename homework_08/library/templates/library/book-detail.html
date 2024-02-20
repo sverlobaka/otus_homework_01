@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{object.name}}
+{% endblock %}
+
+{% block body %}
+  <h1>{{object.name}}</h1>
+    {{object.genre.name}}
+  <div>
+    <a href="{% url 'library:list' %}">Back to book list</a>
+  </div>
+
+  {% include 'common/footer-common.html' %}
+{% endblock %}

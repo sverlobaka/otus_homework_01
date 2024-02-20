@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Library Homepage
+{% endblock %}
+
+{% block body %}
+  <h1>Welcome to our librery!</h1>
+  <ul>
+    <li><a href="{% url 'library:list' %}"
+    >Book list</a></li>
+    <li><a href="{% url 'library:genres-with-books' %}"
+    >Genres</a></li>
+  </ul>
+{% endblock %}
