@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Genres-w-books
+{% endblock %}
+
+{% block body %}
+  <h1>Genres</h1>
+  <h2>With books</h2>
+
+  {% if genres %}
+    <ul>
+      {% for genre in genres %}
+        <li>
+          <strong>{{ genre }}</strong>
+          <ul>
+            {% for book in genre.books.all %}
+              <li>{{ book }}</li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h3>No genres yet</h3>
+  {% endif %}
+
+  {% include 'common/footer-common.html' %}
+{% endblock %}
