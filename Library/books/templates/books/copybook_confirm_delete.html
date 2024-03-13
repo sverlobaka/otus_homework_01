@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Delete {{object.name}}
+{% endblock %}
+
+{% block body %}
+  <h1>Удаление экземпляра книги {{object.book}}</h1>
+    Вы хотите удалить экземпляр книги <strong>{{object.book}}</strong>
+    с инвентарным номером <strong>{{object.id}}</strong>?
+    <p></p>
+    Вы уверены?
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">да</button>
+    </form>
+
+  {% include "back-to-index-common.html" %}
+{% endblock %}

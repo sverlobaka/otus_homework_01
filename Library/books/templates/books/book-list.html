@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Books
+{% endblock %}
+
+{% block body %}
+  <h1>Наши книги:</h1>
+  {% if books %}
+    <ul>
+      {% for book in books %}
+        <li>
+          <strong>
+           <a href="{% url 'books:detail' pk=book.pk %}">
+             {{ book.name }}
+          </a>
+          </strong>
+          <span>
+          <a href="{% url 'books:update' pk=book.pk %}">
+          - внести изменения
+          </a>
+          </span>
+          <br>
+
+        </li>
+      <br>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>No books yet!</h2>
+  {% endif %}
+  <div>
+    {{author}}
+    <a href="{% url 'books:create' %}">Добавить книгу</a>
+    <a href="{% url 'books:copy_list' %}">Инвентарные номера книг</a>
+  </div>
+<br>
+  {% include "back-to-index-common.html" %}
+{% endblock %}`

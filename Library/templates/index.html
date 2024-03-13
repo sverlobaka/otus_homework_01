@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Black Library Homepage
+{% endblock %}
+
+{% block body %}
+  <h1>Welcome to Black library</h1>
+  <ul>
+    <li><a href="{% url 'books:list' %}"
+    >Список книг</a></li>
+  </ul>
+  <ul>
+    <li><a href="{% url 'books:reader_list' %}"
+    >Библиотечные карточки читателей</a></li>
+  </ul>
+  <ul>
+    <li><a href="{% url 'books:author_list' %}"
+    >Авторы</a></li>
+  </ul>
+  <ul>
+    <li><a href="{% url 'books:genre_list' %}"
+    >Жанры</a></li>
+  </ul>
+  <ul>
+    <li><a href="{% url 'books:accounting_books_list' %}"
+    >Учет выданных книг</a></li>
+  </ul>
+{% endblock %}

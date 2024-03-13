@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{reader}}
+{% endblock %}
+
+{% block body %}
+  <h1>{{reader}}</h1>
+    <p>Ф.И.О.: {{reader.name}}</p>
+    <p>адрес: {{reader.address}}</p>
+    <p>электронная почта: {{reader.email}}</p>
+    <br>
+    {{ debt }}
+    <br>
+    <br>
+    <a href="{% url 'books:reader_delete' pk=reader.pk %}">
+    удалить
+    </a>
+    <br>
+    <br>
+  <div>
+    <a href="{% url 'books:reader_list' %}">К списку бибилиотечных карточек</a>
+  </div>
+  {% include "back-to-index-common.html" %}
+{% endblock %}
+

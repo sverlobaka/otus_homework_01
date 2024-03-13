@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Readers
+{% endblock %}
+
+{% block body %}
+  <h1>Наши читатели:</h1>
+  {% if readers %}
+    <ul>
+      {% for reader in readers %}
+        <li>
+          <strong>
+           <a href="{% url 'books:reader_detail' pk=reader.pk %}">
+             {{ reader.name }}
+           </a>
+          </strong>
+          <span>
+          <a href="{% url 'books:reader_update' pk=reader.pk %}">
+          - внести изменения
+          </a>
+          </span>
+          <br>
+
+        </li>
+      <br>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>Читатели еще не добавлены!</h2>
+  {% endif %}
+  <div>
+    <a href="{% url 'books:reader_create' %}">Добавить читателя</a>
+  </div>
+<br>
+  {% include "back-to-index-common.html" %}
+{% endblock %}`

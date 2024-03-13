@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Categories w/ animals
+{% endblock %}
+
+{% block body %}
+  <h1>Выданные книги</h1>
+  {% if debt %}
+    <ul>
+      {% for elem in debt %}
+        <li>
+          <strong>{{ elem.book }}</strong>
+            <ul>
+              Выдана: {{ elem.reader }}
+            {% for reader in elem.debt_books.all %}
+              <li>{{ reader }}</li>
+            {% endfor %}
+            </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>No books yet!</h2>
+  {% endif %}
+  <div>
+    <a href="{% url 'books:accounting_books_list' %}">Вернуться к списку</a>
+  </div>
+<br>
+  {% include "back-to-index-common.html" %}
+{% endblock %}`

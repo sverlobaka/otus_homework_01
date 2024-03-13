@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{object.name}}
+{% endblock %}
+
+{% block body %}
+  <h1>{{"Экземпляр книги:"}} {{ object.book }}</h1>
+    <p>Инвентарный номер книги: {{object.id}}</p>
+    <br>
+    <br>
+    <a href="{% url 'books:copy_delete' pk=object.pk %}">
+    удалить экземпляр
+    </a>
+    <br>
+    <br>
+  <div>
+    <a href="{% url 'books:copy_list' %}"> Вернуться к инвентарным номера книг</a>
+  </div>
+  {% include "back-to-index-common.html" %}
+{% endblock %}
+

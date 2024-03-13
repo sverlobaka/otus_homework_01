@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Books
+{% endblock %}
+
+{% block body %}
+  <h1>Жанры книг:</h1>
+  {% if genres %}
+    <ul>
+      {% for genre in genres %}
+        <li>
+          <strong>
+             {{ genre.name }}
+              <a href="{% url 'books:genre_delete' pk=genre.pk %}"> удалить жанр
+    </a></strong>
+          <br>
+        </li>
+      <br>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>Не добавлен ни один жанр!</h2>
+  {% endif %}
+  <div>
+    <a href="{% url 'books:create_genre' %}">Добавить жанр</a>
+  </div>
+<br>
+  {% include "back-to-index-common.html" %}
+{% endblock %}`

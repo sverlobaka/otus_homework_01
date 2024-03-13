@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{book}}
+{% endblock %}
+
+{% block body %}
+  <h1>{{book.book}}</h1>
+    <strong><p>инвентарный номер книги: </strong>{{book.copy_book.id}}</p>
+    <strong><p>выдана: </strong>{{book.reader}}</p>
+    <br>
+    <br>
+  <div>
+    <a href="{% url 'books:accounting_books_list' %}">К списку выданных книг книг</a>
+  </div>
+  {% include "back-to-index-common.html" %}
+{% endblock %}
+

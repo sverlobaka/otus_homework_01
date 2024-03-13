@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Authors
+{% endblock %}
+
+{% block body %}
+  <h1>Авторы:</h1>
+  {% if authors %}
+    <ul>
+      {% for author in authors %}
+        <li>
+          <strong>
+           <a href="{% url 'books:author_update' pk=author.pk %}">
+             {{ author.name }}
+          </a>
+          </strong>
+          <a {{ author.name }}></a>
+          <span>
+          <a href="{% url 'books:author_delete' pk=author.pk %}">
+          - удалить
+          </a>
+          </span>
+          <br>
+
+        </li>
+      <br>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>Не добавлен ни один автор!</h2>
+  {% endif %}
+  <div>
+    <a href="{% url 'books:create_author' %}">Добавить автора</a>
+  </div>
+<br>
+  {% include "back-to-index-common.html" %}
+{% endblock %}`

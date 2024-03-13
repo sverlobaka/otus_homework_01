@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{object.name}}
+{% endblock %}
+
+{% block body %}
+  <h1>{{book}}</h1>
+    <strong><p>жанр:  </strong>{{object.genre.name}}</p>
+    <strong><p>автор: </strong>{{object.author.name}}</p>
+    <strong><p>описание: </strong>{{object.description}}</p>
+    <br>
+    <br>
+    <a href="{% url 'books:delete' pk=book.pk %}">
+    удалить книгу
+    </a>
+    <br>
+    <br>
+  <div>
+    <a href="{% url 'books:list' %}">К списку книг</a>
+  </div>
+  {% include "back-to-index-common.html" %}
+{% endblock %}
+

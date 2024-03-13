@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Create
+{% endblock %}
+
+{% block body %}
+  <h1>Заполните информацию об авторе</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+    </form>
+  <p></p>
+  <p></p>
+  <div>
+    <a href="{% url 'books:author_list' %}">К списку авторов</a>
+  </div>
+{% endblock %}

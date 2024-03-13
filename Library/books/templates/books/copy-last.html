@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Last copy
+{% endblock %}
+
+{% block body %}
+  <h1>Инвентарный номер книги {{copy.book}} создан:</h1>
+  <h2>{{copy.id}}</h2>
+  <div>
+    <a href="{% url 'books:copy_list' %}">Вернуться к инвентарным номерам книг</a>
+  </div>
+{% endblock %}

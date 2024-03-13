@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Books
+{% endblock %}
+
+{% block body %}
+  <h1>Инвентарные номера книг:</h1>
+  {% if copies_books %}
+    <ul>
+      {% for copy in copies_books %}
+        <li>
+          <strong>
+            {{ copy.id }}
+            <a href="{% url 'books:copy_detail' pk=copy.pk %}">{{ copy.book }}</a></strong>
+          <br>
+        </li>
+      <br>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>No books yet!</h2>
+  {% endif %}
+  <div>
+    <a href="{% url 'books:list' %}">К списку книг</a>
+    <a href="{% url 'books:create_copy' %}">Добавить экземпляр книги</a>
+  </div>
+<br>
+  {% include "back-to-index-common.html" %}
+{% endblock %}`
