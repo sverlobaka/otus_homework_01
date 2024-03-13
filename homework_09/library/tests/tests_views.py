@@ -12,6 +12,7 @@ class GenreViewTestCase(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
 
+
     def test_context(self):
         response = self.client.get(self.url)
         context = response.context
